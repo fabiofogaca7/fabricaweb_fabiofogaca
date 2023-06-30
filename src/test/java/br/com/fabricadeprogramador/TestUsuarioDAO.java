@@ -8,7 +8,7 @@ import br.com.fabricadeprogramador.persistencia.jdbc.UsuarioDAO;
 public class TestUsuarioDAO {
 
 	public static void main(String[] args) {
-		testBuscarTodosUsuarios();
+		testAutenticar();
 	}
 	
 	private static void testBuscarPorId() {
@@ -75,6 +75,17 @@ public class TestUsuarioDAO {
 		
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		usuarioDAO.salvar(usuario);
+	}
+	
+	public static void testAutenticar() {
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		Usuario usuario = new Usuario();
+		usuario.setLogin("fabiofogaca7");
+		usuario.setSenha("1234");
+		
+		Usuario usuarioAutenticado = usuarioDAO.autenticar(usuario);
+		
+		System.out.println(usuarioAutenticado);
 	}
 		
 
